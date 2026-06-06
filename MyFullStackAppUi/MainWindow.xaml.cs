@@ -45,15 +45,15 @@ public partial class AppUi : Window
             var response = await _httpClient.PostAsJsonAsync($"{ApiBaseUrl}/register", requestData);
             if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("Rejestracja zakończona sukcesem! Możesz się zalogować.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Registered successfully!.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 txtRegUser.Text = ""; txtRegEmail.Text = ""; txtRegPass.Password = "";
             }
-            else MessageBox.Show($"Błąd rejestracji. Kod: {response.StatusCode}", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
+            else MessageBox.Show($"Registration error. Code: {response.StatusCode}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             
         }
         catch (HttpRequestException)
         {
-            MessageBox.Show("Nie można połączyć się z serwerem. Czy API jest uruchomione?", "Błąd połączenia", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Can't connect to the server.", "Connection error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
     
@@ -78,17 +78,17 @@ public partial class AppUi : Window
                     _jwtToken = result.Token; 
                     txtTokenDisplay.Text = _jwtToken; 
                     
-                    MessageBox.Show("Zalogowano pomyślnie!", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Logged in successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Błędny e-mail lub hasło.", "Odmowa dostępu", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Incorrect Email or Password.", "Access denied", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         catch (HttpRequestException)
         {
-            MessageBox.Show("Nie można połączyć się z serwerem.", "Błąd połączenia", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("Can't connect to the server.", "Connection error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
     
@@ -96,7 +96,7 @@ public partial class AppUi : Window
     {
         if (string.IsNullOrEmpty(_jwtToken))
         {
-            MessageBox.Show("Brak tokena! Musisz się najpierw zalogować.", "Brak autoryzacji", MessageBoxButton.OK, MessageBoxImage.Warning);
+            MessageBox.Show("Token is required!", "No Authorization", MessageBoxButton.OK, MessageBoxImage.Warning);
             return;
         }
 
@@ -109,20 +109,20 @@ public partial class AppUi : Window
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadFromJsonAsync<UserDataResponse>();
-                lblServerResponse.Text = result?.Email ?? "Brak danych";
+                lblServerResponse.Text = result?.Email ?? "No Data";
                 lblServerResponseMessage.Text = result?.Message ?? "";
                 lblServerResponse.Foreground = Brushes.Green;
                 lblServerResponseMessage.Foreground = Brushes.Green;
             }
             else
             {
-                lblServerResponse.Text = $"Błąd dostępu ({response.StatusCode})";
+                lblServerResponse.Text = $"Access error ({response.StatusCode})";
                 lblServerResponse.Foreground = Brushes.Red;
             }
         }
         catch (HttpRequestException)
         {
-            lblServerResponse.Text = "Błąd sieciowy";
+            lblServerResponse.Text = "Connection error";
             lblServerResponse.Foreground = Brushes.Red;
         }
     }
