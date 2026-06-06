@@ -1,0 +1,9 @@
+
+bin/
+obj/
+.idea/
+
+appsettings.Development.json
+*.db
+*.sqlite
+*.user

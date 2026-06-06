@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MyFullStackAppApi/MyFullStackAppApi.csproj" />
+  <Project Path="MyFullStackAppUi/MyFullStackAppUi.csproj" />
+</Solution>
