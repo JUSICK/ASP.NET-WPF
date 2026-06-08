@@ -43,7 +43,7 @@ The solution is divided into two main projects. To run the application locally, 
 1. Clone the repository: `git clone https://github.com/JUSICK/ASP.NET-WPF.git`
 2. Open the `.slnx` (Solution) file in your IDE.
 3. Set the **CsFullStackApp** project as the Startup Project.
-4. Open `appsettings.json` and ensure the `MariaDbConnection` points to your local database instance.
+4. Open `appsettings.json` and ensure the `MariaDbConnection` points to your local database instance. (IF you are opening using CLI - dotnet restore for installing NuGet packages)
 5. Open the Package Manager Console and update the database:
    ```powershell
    Update-Database
