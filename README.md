@@ -44,9 +44,15 @@ The solution is divided into two main projects. To run the application locally, 
 2. Open the `.slnx` (Solution) file in your IDE.
 3. Set the **CsFullStackApp** project as the Startup Project.
 4. Open `appsettings.json` and ensure the `MariaDbConnection` points to your local database instance. (IF you are opening using CLI - dotnet restore for installing NuGet packages)
-5. Open the Package Manager Console and update the database:
+5. Open the Package Manager Console and update the database (FOR Visual Studio):
    ```powershell
    Update-Database
+   ```
+5. Open the CLI and update the database (FOR Rider JetBrains):
+   ```powershell
+   cd .\MyFullStackAppApi\
+   dotnet ef database update
+   ```
 <img width="492" height="242" alt="Screenshot 2026-06-06 110353" src="https://github.com/user-attachments/assets/369ca066-0874-4d4d-81f6-14b92dbe69cd" />
 
 <img width="1876" height="989" alt="Screenshot 2026-06-07 002641" src="https://github.com/user-attachments/assets/dec5697c-93b1-4e7d-8944-c033fe5f27dc" />
