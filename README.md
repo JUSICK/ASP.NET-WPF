@@ -40,10 +40,10 @@ The solution is divided into two main projects. To run the application locally, 
 * A local SQL server running
 
 ### 1. Setup & Run the ASP.NET Core API
-1. Clone the repository: `git clone [Twój link do repo]`
+1. Clone the repository: `git clone https://github.com/JUSICK/ASP.NET-WPF.git`
 2. Open the `.slnx` (Solution) file in your IDE.
-3. Set the **[NazwaProjektu.API]** project as the Startup Project.
-4. Open `appsettings.json` and ensure the `DefaultConnection` string points to your local database instance.
+3. Set the **CsFullStackApp** project as the Startup Project.
+4. Open `appsettings.json` and ensure the `MariaDbConnection` points to your local database instance.
 5. Open the Package Manager Console and update the database:
    ```powershell
    Update-Database
