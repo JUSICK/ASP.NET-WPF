@@ -51,6 +51,7 @@ The solution is divided into two main projects. To run the application locally, 
 5. Open the CLI and update the database (FOR Rider JetBrains):
    ```powershell
    cd .\MyFullStackAppApi\
+   dotnet ef migrations add InitialCreate
    dotnet ef database update
    ```
 <img width="492" height="242" alt="Screenshot 2026-06-06 110353" src="https://github.com/user-attachments/assets/369ca066-0874-4d4d-81f6-14b92dbe69cd" />
